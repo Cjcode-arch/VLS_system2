@@ -136,7 +136,14 @@ public class FxSample extends Application implements Hello {
    }  
 
    // Implementing the interface method 
-   public void animation() {  
-      launch();  
-   }  
+   public void animation() {
+      javafx.application.Platform.runLater(() -> {
+         try {
+            Stage newStage = new Stage();
+            start(newStage);
+         } catch (Exception e) {
+            e.printStackTrace();
+         }
+      });
+   }
 }

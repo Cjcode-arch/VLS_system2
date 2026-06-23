@@ -15,7 +15,7 @@ public class Server extends FxSample {
          Hello stub = (Hello) UnicastRemoteObject.exportObject(obj, 0);  
       
          // Binding the remote object (stub) in the registry 
-         Registry registry = LocateRegistry.getRegistry(); 
+         Registry registry = LocateRegistry.createRegistry(1099);
          
          registry.bind("Hello", stub);  
          System.err.println("Server ready"); 
